@@ -87,6 +87,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    => Detail Screen
 * Detail Screen
    > Sell Screen
+   
    > Transactions Screen
 * Sell Screen
    => Listings Screen
