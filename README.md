@@ -57,39 +57,54 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    * User can see information about bot
        * User can see price
        * User can see what bot is used to buy
-* Creation Screen
+* Sell Screen
    * User can list their bot
+* Transactions Screen
+   * User can view the statuses of their past purchases and sales made through the app
+* Listings Screen
+   * User can view their active listings
 * Account Screen
    * User can change their profile picture and password
+* Change Password Screen
+   * User can change their account password
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* Home Feed
+* Home
 * Account
-* Sales | Purchases | Listings
+* Transactions
 
 **Flow Navigation** (Screen to Screen)
 
 * Login Screen
-   => Home Feed (Stream)
+   => Home (Stream Screen)
 * Sign up screen
    => Login Screen
-* Stream
+* Stream Screen (Home)
    => Detail
-* Detail
-   => Creation
-   => Purchase
-* Creation (List Now)
-   => Sales | Purchases | Listings
-* Account Screen
+* Detail Screen
+   => Sell Screen
+   => Transactions Screen
+* Sell Screen
+   => Listings Screen
+* Transactions Screen
+   => Listings Screen
+* Listings Screen
    => None
+* Account Screen
+   => Change Password Screen
+   => Image Picker (User Profile Photo)
+* Change Passwrod Screen
+   => Account Screen
    
 ## Wireframes
 <img src="https://i.imgur.com/LqSEFs7.jpg" width=600>
 
+
 ### [BONUS] Digital Wireframes & Mockups!
+
 <img src="https://i.imgur.com/Uh15kDT.jpg" width=600>
 
 ### [BONUS] Interactive Prototype!
