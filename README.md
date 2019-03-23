@@ -79,27 +79,29 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 **Flow Navigation** (Screen to Screen)
 
 * Login Screen
-   => Home (Stream Screen)
-   => Sign Up Screen
+   > Home (Stream Screen)
+   
+   > Sign Up Screen
 * Sign up screen
-   => Login Screen
+   > Login Screen
 * Stream Screen (Home)
-   => Detail Screen
+   > Detail Screen
 * Detail Screen
    > Sell Screen
    
    > Transactions Screen
 * Sell Screen
-   => Listings Screen
+   > Listings Screen
 * Transactions Screen
-   => Listings Screen
+   > Listings Screen
 * Listings Screen
-   => None
+   > None
 * Account Screen
-   => Change Password Screen
-   => Image Picker (User Profile Photo)
+   > Change Password Screen
+   
+   > Image Picker (User Profile Photo)
 * Change Passwrod Screen
-   => Account Screen
+   > Account Screen
    
 ## Wireframes
 <img src="https://i.imgur.com/LqSEFs7.jpg" width=600>
