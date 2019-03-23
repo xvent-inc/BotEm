@@ -100,7 +100,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    > Change Password Screen
    
    > Image Picker (User Profile Photo)
-* Change Passwrod Screen
+* Change Password Screen
    > Account Screen
    
 ## Wireframes
