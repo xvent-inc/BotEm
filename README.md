@@ -84,10 +84,10 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 * Sign up screen
    => Login Screen
 * Stream Screen (Home)
-   => Detail
+   => Detail Screen
 * Detail Screen
-   => Sell Screen
-   => Transactions Screen
+   > Sell Screen
+   > Transactions Screen
 * Sell Screen
    => Listings Screen
 * Transactions Screen
