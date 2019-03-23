@@ -80,6 +80,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 * Login Screen
    => Home (Stream Screen)
+   => Sign Up Screen
 * Sign up screen
    => Login Screen
 * Stream Screen (Home)
