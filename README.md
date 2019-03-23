@@ -1,6 +1,3 @@
-Group Project - README Template
-===
-
 # BotEm
 
 ## Table of Contents
