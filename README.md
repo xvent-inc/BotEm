@@ -51,6 +51,8 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    * User can login
 * Sign up screen
    * User can create an account
+* Reset Password screen
+   * User can reset the account's password
 * Stream Screen
    * User can view bots for sale
 * Detail Screen
