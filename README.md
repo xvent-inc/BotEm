@@ -120,24 +120,41 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 ## Schema 
 ### Models
 User
+
 | Property | Type | Description |
+
 | -------- | -------- | -------- |
+
 | userID     | String     | unique identifier for user |
+
 | firstName     | String | user first name |
+
 | lastName     | String | user last name |
+
 | username     | String | user username |
+
 | email     | String | user email address |
+
 | password     | Hash String | user password |
+
 | profilePicture | File | user picture |
 
 Transaction
+
 | Property | Type | Description |
+
 | -------- | -------- | -------- |
+
 | transactionID | Number | unique identifier for transaction |
+
 | status | String | status of the listings |
+
 | price | Number | price of bot |
+
 | lowestPrice | Number | lowest price of bot |
+
 | payout | Number | bot sold price |
+
 | typeOfBot | String | Lifetime or renewal |
 
 
