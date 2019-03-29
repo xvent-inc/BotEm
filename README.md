@@ -119,7 +119,8 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 ## Schema 
 ### Models
-User
+
+
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | userID     | String     | unique identifier for user |
@@ -131,7 +132,6 @@ User
 | profilePicture | File | user picture |
 
 
-Transaction
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | transactionID | Number | unique identifier for transaction |
