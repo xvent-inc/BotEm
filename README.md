@@ -120,6 +120,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 ## Schema 
 ### Models
 
+**User**
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
@@ -131,6 +132,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 | password     | Hash String | user password |
 | profilePicture | File | user picture |
 
+**Transaction**
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
