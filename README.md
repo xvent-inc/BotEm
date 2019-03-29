@@ -80,15 +80,17 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 * Login Screen
    > Home (Stream Screen)
-   
+
    > Sign Up Screen
 * Sign up screen
    > Login Screen
+* Reset Password screen
+   > Login Screen 
 * Stream Screen (Home)
-   > Detail Screen
+   > Detail
 * Detail Screen
    > Sell Screen
-   
+
    > Transactions Screen
 * Sell Screen
    > Listings Screen
@@ -98,9 +100,9 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    > None
 * Account Screen
    > Change Password Screen
-   
+
    > Image Picker (User Profile Photo)
-* Change Password Screen
+* Change Passwrod Screen
    > Account Screen
    
 ## Wireframes
@@ -116,10 +118,303 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+User
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| userID     | String     | unique identifier for user |
+| firstName     | String | user first name |
+| lastName     | String | user last name |
+| username     | String | user username |
+| email     | String | user email address |
+| password     | Hash String | user password |
+| profilePicture | File | user picture |
+
+Transaction
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| transactionID | Number | unique identifier for transaction |
+| status | String | status of the listings |
+| price | Number | price of bot |
+| lowestPrice | Number | lowest price of bot |
+| payout | Number | bot sold price |
+| typeOfBot | String | Lifetime or renewal |
+
+
+
+
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+// Just to help with this part
+Create	POST	Creating a new post
+Read	GET	Fetching posts for a user's feed
+Update	PUT	Changing a user's profile image
+Delete	DELETE	Deleting a comment
+
+
+* Login Screen
+   * (Read/GET) Query for username and password match
+        ```
+        @IBAction func onSignin(_ sender: Any) {
+            let username = usernameField.text!
+            let password = passwordField.text!
+
+
+            PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+                if user != nil {
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                } else {
+                    print("Error: \(error?.localizedDescription)")            }
+            }
+        }
+        ```
+* Reset Password Screen
+   * (Read/GET) Have server send reset passwrod request to user's email
+        ```
+        @IBAction func onResetPass(_ sender: Any) {
+            let email = emailField.text!
+
+            PFUser.requestPasswordResetForEmailInBackground(email)
+        }
+        ```
+* Sign up Screen
+   * (Create/POST) Create a new user account
+        ```
+        @IBAction func onSignup(_ sender: Any) {
+            var user = PFUser()
+            user.username = usernameSignUpField.text
+            user.password = passwordSignUpField.text
+            user.email = emailSignUpField.text
+
+            user["firstName"] = firstNameSignUpField.text
+            user["lastName"] = lastNameSignUpField.text
+
+            let imageData = UIImage(named: "noProfilePicture")!.pngData()
+            let file = PFFileObject(data: imageData!)
+
+            user["profilePicture"] = file
+
+            user.signUpInBackground { (success, error) in
+                if success {
+                   self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                } else {
+                    print("Error: \(error?.localizedDescription)")
+                }
+            }   
+        }
+        ```
+* Stream Screen
+   * (Read/GET) Query bot Image for lifetime and renewal bots
+        ```
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+            if collectionView == self.LifetimeBotsCollectionView {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LifetimeBotsCollectionViewCell", for: indexPath) as! LifetimeBotsCollectionViewCell
+
+                let lifetimeBot = lifetimeBots[indexPath.row]
+
+                let imageFile = lifetimeBot["image"] as! PFFileObject
+                let urlString = imageFile.url!
+                let url = URL(string: urlString)!
+
+                cell.lifetimeBotImageView.af_setImage(withURL: url)
+
+                return cell
+            }
+            else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RenewableBotsCollectionViewCell", for: indexPath) as! RenewableBotsCollectionViewCell
+
+                let renewableBot = renewableBots[indexPath.row]
+
+                let imageFile = renewableBot["image"] as! PFFileObject
+                let urlString = imageFile.url!
+                let url = URL(string: urlString)!
+
+                cell.renewableBotImageView.af_setImage(withURL: url)
+
+                return cell
+            }
+        }
+        ```
+* Detail Screen
+   * (Read/GET) Query for lowest bot price and bot description
+        ```
+        override func viewDidLoad() {
+            let imageFile = bot["image"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+
+            botPhotoView.af_setImage(withURL: url)
+
+            botNameLabel.text = bot["name"] as? String
+            botPriceLabel.text = bot["currentPrice"] as? String
+            descriptionLabel.text = bot["description"] as? String
+        }
+        ```
+* Sell Screen
+   * (Create/POST) Create a new bot listing
+   * (Create/POST) Create a new price for bot
+    ```
+    @IBAction func onListButton(_ sender: Any) {
+        let botListing = PFObject(className: "Bots")
+
+        botListing["price"] = priceTextField.text!
+        botListing["seller"] = PFUser.current()!
+        botListing["bot"] = bot["name"] as? String
+
+        botListing.saveInBackground() { (success, error) in
+            if success {
+                _ = self.navigationController?.popToRootViewController(animated: true)
+                print("Post Saved!")
+            } else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+    }
+    ```
+* Transactions Screen
+   * (Read/GET) Query all transactions 
+        ```
+        func tableView(_ tableView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
+
+            if tableView == self.PurchasesTableView {
+                let cell = tableView.dequeueReusableCell(withReuseIdentifier: "PurchasesTableViewCell", for: indexPath) as! PurchasesTableViewCell
+
+                let purchase = purchases[indexPath.row]
+
+                cell.botNameLabel.text = purchase["bot"] as? String
+                cell.transactionTypeLabel.text = "PURCHASE"
+                cell.botTypeLabel.text = purchase["botType"] as? String
+                cell.priceLabel.text = purchase["price"] as? String
+                cell.statusLabel.text = purchase["status"] as? String
+                // change color of label if equal to certain text
+
+                return cell
+            }
+            else {
+                let cell = tableView.dequeueReusableCell(withReuseIdentifier: "SalesTableViewCell", for: indexPath) as! SalesTableViewCell
+
+                let sale = sales[indexPath.row]
+
+                cell.botNameLabel.text = sale["bot"] as? String
+                cell.transactionTypeLabel.text = "SALE"
+                cell.botTypeLabel.text = sale["botType"] as? String
+                cell.priceLabel.text = sale["price"] as? String
+                cell.statusLabel.text = sale["status"] as? String
+                // change color of label if equal to certain text
+
+                let price = sale["price"] 
+                let transactionFee = price * 0.095
+                let paymentProcFee = price * 0.03
+                let payout = price - transactionFee - paymentProcFee
+
+                cell.payoutLabel.text = payout as? String
+
+                return cell
+            }
+        }
+        ```
+* Listings Screen
+   * (Read/GET) Query all listings
+        ```
+        func tableView(_ tableView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
+
+            let cell = tableView.dequeueReusableCell(withReuseIdentifier: "ListingsTableViewCell", for: indexPath) as! ListingsTableViewCell
+
+            let listing = listings[indexPath.row]
+
+            cell.botNameLabel.text = listing["bot"] as? String
+            cell.transactionTypeLabel.text = "LISTING"
+            cell.botTypeLabel.text = listing["botType"] as? String
+            cell.statusLabel.text = "UP FOR SALE"
+
+            let price = sale["price"] 
+            let transactionFee = price * 0.095
+            let paymentProcFee = price * 0.03
+            let payout = price - transactionFee - paymentProcFee
+
+            cell.payoutLabel.text = payout as? String
+
+            @IBAction func onCancelButton(_ sender: Any) {
+                listing.deleteInBackground
+            }
+
+            return cell
+        }
+        ```
+* Account Screen
+   * (Update/PUT) Update user profile picture
+   * (Read/GET) Query profile picture, first name, last name, and username
+    ```
+    override func viewDidLoad() {
+        let imageFile = user?["profilePicture"] as! PFFileObject
+        let urlString = imageFile.url!
+        let url = URL(string: urlString)!
+
+        profilePicture.layer.cornerRadius = 50
+        profilePicture.clipsToBounds = true
+        profilePicture.af_setImage(withURL: url)
+
+        usernameLabel.text = user?.username
+        firstNameLabel.text = user["firstName"] as? String
+        lastNameLabel.text = user["lastName"] as? String
+    }
+
+    @IBAction func setPictureButton(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+
+        picker.sourceType = .photoLibrary
+
+        present(picker, animated: true, completion: nil)
+    }
+
+    @objc func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+
+        let size = CGSize(width: 250, height: 250)
+        let scaledImage = image.af_imageAspectScaled(toFill: size)
+
+        profilePicture.image = scaledImage
+
+        let imageData = profilePicture.image!.pngData()
+        let file = PFFileObject(data: imageData!)
+
+        user?["profilePicture"] = file
+
+        user?.saveInBackground() { (success, error) in
+            if success {
+                print("Profile Picture Saved!")
+            } else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
+    ```
+* Change Password Screen
+   * (Update/PUT) Update user password
+   * (Read/GET) Query user's current password
+    ```
+    @IBAction func onChangePass(_ sender: Any) {
+        if (currentPassField.text == user?.password as? String) {
+
+            user?.password = currentPassField.text as? String
+
+            user?.saveInBackground { (success, error) in
+                if success {
+                    print("Password Changed!")
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print("Error: \(String(describing: error?.localizedDescription))")
+                }
+            }
+        }
+        else {
+            print("Current Password Incorrect.")
+        }
+    }
+    ```
