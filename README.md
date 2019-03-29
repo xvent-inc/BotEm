@@ -149,15 +149,8 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 ### Networking
 
-// Just to help with this part
-Create	POST	Creating a new post
-Read	GET	Fetching posts for a user's feed
-Update	PUT	Changing a user's profile image
-Delete	DELETE	Deleting a comment
-
-
 * Login Screen
-   * (Read/GET) Query for username and password match
+   * (Read/`GET`) Query for username and password match
         ```
         @IBAction func onSignin(_ sender: Any) {
             let username = usernameField.text!
@@ -173,7 +166,7 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Reset Password Screen
-   * (Read/GET) Have server send reset passwrod request to user's email
+   * (Read/`GET`) Have server send reset passwrod request to user's email
         ```
         @IBAction func onResetPass(_ sender: Any) {
             let email = emailField.text!
@@ -182,7 +175,7 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Sign up Screen
-   * (Create/POST) Create a new user account
+   * (Create/`POST`) Create a new user account
         ```
         @IBAction func onSignup(_ sender: Any) {
             var user = PFUser()
@@ -208,7 +201,7 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Stream Screen
-   * (Read/GET) Query bot Image for lifetime and renewal bots
+   * (Read/`GET`) Query bot Image for lifetime and renewal bots
         ```
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
@@ -241,7 +234,7 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Detail Screen
-   * (Read/GET) Query for lowest bot price and bot description
+   * (Read/`GET`) Query for lowest bot price and bot description
         ```
         override func viewDidLoad() {
             let imageFile = bot["image"] as! PFFileObject
@@ -256,8 +249,8 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Sell Screen
-   * (Create/POST) Create a new bot listing
-   * (Create/POST) Create a new price for bot
+   * (Create/`POST`) Create a new bot listing
+   * (Create/`POST`) Create a new price for bot
     ```
     @IBAction func onListButton(_ sender: Any) {
         let botListing = PFObject(className: "Bots")
@@ -277,7 +270,7 @@ Delete	DELETE	Deleting a comment
     }
     ```
 * Transactions Screen
-   * (Read/GET) Query all transactions 
+   * (Read/`GET`) Query all transactions 
         ```
         func tableView(_ tableView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -319,7 +312,7 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Listings Screen
-   * (Read/GET) Query all listings
+   * (Read/`GET`) Query all listings
         ```
         func tableView(_ tableView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -347,8 +340,8 @@ Delete	DELETE	Deleting a comment
         }
         ```
 * Account Screen
-   * (Update/PUT) Update user profile picture
-   * (Read/GET) Query profile picture, first name, last name, and username
+   * (Update/`PUT`) Update user profile picture
+   * (Read/`GET`) Query profile picture, first name, last name, and username
     ```
     override func viewDidLoad() {
         let imageFile = user?["profilePicture"] as! PFFileObject
@@ -399,8 +392,8 @@ Delete	DELETE	Deleting a comment
     }
     ```
 * Change Password Screen
-   * (Update/PUT) Update user password
-   * (Read/GET) Query user's current password
+   * (Update/`PUT`) Update user password
+   * (Read/`GET`) Query user's current password
     ```
     @IBAction func onChangePass(_ sender: Any) {
         if (currentPassField.text == user?.password as? String) {
