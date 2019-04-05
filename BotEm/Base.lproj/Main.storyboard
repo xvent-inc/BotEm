@@ -10,53 +10,184 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RegisterViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BotEm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="RegisterViewController" id="BYZ-38-t0r" customClass="ResetPasswordViewController" customModule="BotEm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AOi-UM-ocw" customClass="FormTextField" customModule="BotEm" customModuleProvider="target">
+                                <rect key="frame" x="16" y="180" width="145" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="0h7-Vv-Uil"/>
+                                    <constraint firstAttribute="height" constant="50" id="p00-hm-dU2"/>
+                                </constraints>
+                                <color key="textColor" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" red="0.66268569231033325" green="0.66278314590454102" blue="0.66266441345214844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3X3-kt-Kmx" customClass="FormTextField" customModule="BotEm" customModuleProvider="target">
+                                <rect key="frame" x="214" y="180" width="145" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="UnM-oI-3h0"/>
+                                    <constraint firstAttribute="height" constant="50" id="ooH-Da-Bca"/>
+                                    <constraint firstAttribute="width" constant="145" id="ykb-XN-PVE"/>
+                                </constraints>
+                                <color key="textColor" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpt-Us-pL8">
+                                <rect key="frame" x="50" y="542" width="275" height="50"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.11764705882352941" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JdV-c2-gW7"/>
+                                </constraints>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.53725490196078429" green="0.14509803921568626" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R0N-eX-k7G"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="botEmLogo" translatesAutoresizingMaskIntoConstraints="NO" id="v6t-GR-qAm">
+                                <rect key="frame" x="127.5" y="45" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="i87-Z6-a7v"/>
+                                    <constraint firstAttribute="height" constant="120" id="xiB-l0-Jd2"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pVL-4I-PJl" customClass="FormTextField" customModule="BotEm" customModuleProvider="target">
+                                <rect key="frame" x="16" y="250" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VDt-sl-iRD"/>
+                                </constraints>
+                                <color key="textColor" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HVD-K5-yHk" customClass="FormTextField" customModule="BotEm" customModuleProvider="target">
+                                <rect key="frame" x="16" y="320" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="m5C-gf-I8g"/>
+                                </constraints>
+                                <color key="textColor" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-K7-Bv0" customClass="FormTextField" customModule="BotEm" customModuleProvider="target">
+                                <rect key="frame" x="16" y="390" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LNZ-mh-jmj"/>
+                                </constraints>
+                                <color key="textColor" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" red="0.66268569229999996" green="0.66278314589999998" blue="0.66266441350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNU-s3-5Ye">
+                                <rect key="frame" x="87.5" y="600" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="E0t-tC-GM4"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.82745098039215681" green="0.12156862745098039" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vB-R1-HXk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rpt-Us-pL8" firstAttribute="top" secondItem="kJa-K7-Bv0" secondAttribute="bottom" constant="102" id="5gU-Nu-Lim"/>
+                            <constraint firstItem="kJa-K7-Bv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6He-IS-jh1"/>
+                            <constraint firstItem="kJa-K7-Bv0" firstAttribute="top" secondItem="HVD-K5-yHk" secondAttribute="bottom" constant="20" id="6aR-9t-FWz"/>
+                            <constraint firstItem="v6t-GR-qAm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7gy-uD-WSU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3X3-kt-Kmx" secondAttribute="trailing" constant="16" id="CVR-xP-2Kw"/>
+                            <constraint firstItem="kJa-K7-Bv0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EmL-26-wYt"/>
+                            <constraint firstItem="uNU-s3-5Ye" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GlZ-wA-Dlk"/>
+                            <constraint firstItem="rpt-Us-pL8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="KK1-EN-nuk"/>
+                            <constraint firstItem="uNU-s3-5Ye" firstAttribute="top" secondItem="rpt-Us-pL8" secondAttribute="bottom" constant="8" id="KLo-2u-Bnl"/>
+                            <constraint firstItem="pVL-4I-PJl" firstAttribute="top" secondItem="3X3-kt-Kmx" secondAttribute="bottom" constant="20" id="Lp5-dT-d0O"/>
+                            <constraint firstItem="pVL-4I-PJl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RQm-aU-cH1"/>
+                            <constraint firstItem="pVL-4I-PJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S62-kh-MmE"/>
+                            <constraint firstItem="HVD-K5-yHk" firstAttribute="top" secondItem="pVL-4I-PJl" secondAttribute="bottom" constant="20" id="Srv-cO-AkY"/>
+                            <constraint firstItem="pVL-4I-PJl" firstAttribute="top" secondItem="AOi-UM-ocw" secondAttribute="bottom" constant="20" id="UGR-hR-bLU"/>
+                            <constraint firstItem="AOi-UM-ocw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cXK-uw-UkA"/>
+                            <constraint firstItem="HVD-K5-yHk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ktA-ae-rT5"/>
+                            <constraint firstItem="uNU-s3-5Ye" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87.5" id="qXB-xt-uXJ"/>
+                            <constraint firstItem="AOi-UM-ocw" firstAttribute="top" secondItem="v6t-GR-qAm" secondAttribute="bottom" constant="15" id="vS9-BQ-Lp4"/>
+                            <constraint firstItem="v6t-GR-qAm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="voy-Nb-8og"/>
+                            <constraint firstItem="3X3-kt-Kmx" firstAttribute="top" secondItem="v6t-GR-qAm" secondAttribute="bottom" constant="15" id="wdn-bL-T20"/>
+                            <constraint firstItem="HVD-K5-yHk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yg2-1W-O9l"/>
+                            <constraint firstItem="rpt-Us-pL8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z8f-lN-8zy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="uNU-s3-5Ye" id="Qjd-EQ-TkD"/>
+                        <outlet property="emailAddressField" destination="HVD-K5-yHk" id="OOE-rO-TLL"/>
+                        <outlet property="firstNameField" destination="AOi-UM-ocw" id="6rX-2L-uW1"/>
+                        <outlet property="lastNameField" destination="3X3-kt-Kmx" id="8Uw-K2-h5K"/>
+                        <outlet property="passwordField" destination="kJa-K7-Bv0" id="fIy-hT-CMU"/>
+                        <outlet property="signUpButton" destination="rpt-Us-pL8" id="q0r-Wn-qUx"/>
+                        <outlet property="usernameField" destination="pVL-4I-PJl" id="i0Y-Z3-n5E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="3rZ-9M-e1S">
-            <objects>
-                <viewController id="0eV-B1-Acm" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kDN-zY-T2B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="QzL-g4-goS"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vOi-i3-nnP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TOF-o9-L0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2198" y="134"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fDF-Xh-yQy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cdr-Og-fjS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O92-qn-pbi">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0eV-B1-Acm" kind="relationship" relationship="rootViewController" id="ZQw-Rp-z86"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yia-rC-riq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1434" y="134"/>
+            <point key="canvasLocation" x="1000.8" y="130.88455772113943"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="botEmLogo" width="200" height="200"/>
+    </resources>
 </document>
