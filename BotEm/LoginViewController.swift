@@ -20,13 +20,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signup: UIButton!
     
     
-    
+    let purple = UIColor(hex: "#8925B1ff")
     override func viewDidLoad() {
         super.viewDidLoad()
-        let purple = UIColor(hex: "#8925B1")
-        login.layer.borderWidth = 5
-        login.layer.borderColor = purple?.cgColor
         
+        login.layer.borderWidth = 2
+        login.layer.borderColor = purple?.cgColor
+        login.layer.cornerRadius = 10
+        
+        signup.layer.borderWidth = 2
+        signup.layer.borderColor = purple?.cgColor
+        signup.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
     
