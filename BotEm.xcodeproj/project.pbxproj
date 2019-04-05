@@ -13,6 +13,7 @@
 		26B9D29C2256E8B90046A32E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26B9D29B2256E8B90046A32E /* Assets.xcassets */; };
 		26B9D29F2256E8B90046A32E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26B9D29D2256E8B90046A32E /* LaunchScreen.storyboard */; };
 		26B9D2A72256E94B0046A32E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9D2A62256E94B0046A32E /* TableViewCell.swift */; };
+		E4F358422256F2FA00BE420B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F358412256F2FA00BE420B /* SignInViewController.swift */; };
 		FE8594C5839A9C91462F19F3 /* Pods_BotEm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB1823995FE0F730447E180 /* Pods_BotEm.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		26B9D2A62256E94B0046A32E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8FB1823995FE0F730447E180 /* Pods_BotEm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DAB554507B257C71FF2A6D /* Pods-BotEm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEm.release.xcconfig"; path = "Pods/Target Support Files/Pods-BotEm/Pods-BotEm.release.xcconfig"; sourceTree = "<group>"; };
+		E4F358412256F2FA00BE420B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				26B9D29D2256E8B90046A32E /* LaunchScreen.storyboard */,
 				26B9D2A02256E8B90046A32E /* Info.plist */,
 				26B9D2A62256E94B0046A32E /* TableViewCell.swift */,
+				E4F358412256F2FA00BE420B /* SignInViewController.swift */,
 			);
 			path = BotEm;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F358422256F2FA00BE420B /* SignInViewController.swift in Sources */,
 				26B9D2A72256E94B0046A32E /* TableViewCell.swift in Sources */,
 				26B9D2972256E8B80046A32E /* ViewController.swift in Sources */,
 				26B9D2952256E8B80046A32E /* AppDelegate.swift in Sources */,
